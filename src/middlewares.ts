@@ -27,7 +27,7 @@ export const gzipper = compress({
     gzip: { flush: constants.Z_SYNC_FLUSH }, // flush is necessary for SSE, at least in Chrome145
     deflate: { flush: constants.Z_SYNC_FLUSH },
     zstd: { flush: constants.Z_SYNC_FLUSH },
-    br: false, // disable brotli
+    br: { flush: constants.Z_SYNC_FLUSH },
     filter(type) {
         return /text|javascript|style/i.test(type)
     },
